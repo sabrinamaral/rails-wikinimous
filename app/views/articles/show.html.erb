@@ -1,4 +1,15 @@
 <div class='container mt-5'>
-  <h1><%= @article.title %></h1>
-  <p><%= @article.content %></p>
+  <div class='row justify-content-center'>
+    <div class='col-8'>
+      <div class='d-flex align-items-center' >
+        <h1 class='text-secondary fs-2 mb-0'><%= @article.title %></h1>
+        <%= link_to edit_path(@article) do %><i class="fa-solid fa-pencil ms-2 fs-5 text-secondary"></i> <% end %>
+        <%= link_to article_path(@article),  data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
+          <i class="fa-solid fa-trash-can ms-2 fs-5 text-secondary"></i>
+        <% end %>
+      </div>
+      <hr class='text-secondary'>
+      <p><%= @article.content %></p>
+    </div>
+  </div>
 </div>
