@@ -13,7 +13,7 @@ puts 'Creating new ones...'
 
 10.times do |_|
   title = Faker::Lorem.sentence
-  content = Faker::Movies::BackToTheFuture.quote
+  content = Faker::Lorem.paragraph_by_chars(number: 256, supplemental: false)
 
   article = Article.new(title: title, content: content)
   puts article.save!
